@@ -27,7 +27,7 @@ bool searchMatrix(vector<vector<int> >& matrix, int target) {
     return false;
 }
 bool searchMat(vector<vector<int> >& matrix, int target) {
-    // T = O(N + M) if n == m then O(2n)
+    // T = O(N + M) if n == m then O(2N)
     int i = 0;
     int j = matrix.size() - 1;
     while(i < matrix.size() && j >= 0) {
