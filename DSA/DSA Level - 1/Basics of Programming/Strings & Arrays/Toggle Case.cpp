@@ -1,21 +1,24 @@
+/*
+Input : pepCODinG
+Output : PEPcodINg
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
 
-void charDifference(string s) {
-    string s1;
-    s1 += s[0];
-    for(int i = 0; i < s.length() - 1; i++) {
-        char start = s[i];
-        char end = s[i + 1];
-        s1 += to_string(end - start);
-        s1 += end;
+void toggleString(string s) {
+    for(int i = 0; i < s.length(); i++) {
+        if(s[i] >= 'A' && s[i] <= 'Z') 
+            s[i] += 32;
+        else 
+            s[i] -= 32;
     }
-    cout << s1;
+    cout << s;
 }
 
 int main() {
     string s;
     cin >> s;
-    charDifference(s);
+    toggleString(s);
     return 0;
 }
