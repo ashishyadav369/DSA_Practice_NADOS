@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Iterative Approach
 vector<string> gss(string s){
-    // write your code here
     vector<string> ans;
     int n = s.length();
     int size = pow(2, n);
@@ -23,13 +23,39 @@ vector<string> gss(string s){
     return ans; 
     
 }
+// Recurcive
+vector<string> gssRec(string s){
+    if(s.empty()){
+        vector<string> base;
+        base.push_back("");
+        return base;
+    }
+
+    char ch = s[0];
+    string ros = s.substr(1);
+
+    vector<string> rres = gss(ros);
+    vector<string> mres;
+
+    for (string s : rres)
+        mres.push_back(s);
+
+    for (string s : rres)
+        mres.push_back(ch + s);
+
+    return mres;
+}
+
 
 int main(){
     string s;
     cin >> s;
-    vector<string> ans = gss(s);
+    vector<string> ans = gssRec(s);
     int cnt = 0;
-
+    for(int i = 0; i < ans.size(); i++) {
+        cout << "pp";
+        cout << ans[i] << endl;
+    }
     cout << "[";
     for (string str : ans){
         if (cnt != ans.size() - 1)
