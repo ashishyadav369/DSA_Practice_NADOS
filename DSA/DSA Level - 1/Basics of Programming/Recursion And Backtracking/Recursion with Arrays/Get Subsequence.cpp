@@ -45,6 +45,20 @@ vector<string> gssRec(string s){
 
     return mres;
 }
+// Recursive Without returning Array
+void gssRec2(string s, string result) {
+
+    if(s.empty()) {
+        cout << result << endl;
+        return;
+    }
+
+    char first = s[0];
+    string rem = s.substr(1);
+    gssRec2(rem, result);
+    gssRec2(rem, result + first);
+
+}
 
 
 int main(){
@@ -65,4 +79,8 @@ int main(){
         cnt++;
     }
     cout << "]";
+
+    string result = "";
+    gssRec2(s, result);
+
 }
